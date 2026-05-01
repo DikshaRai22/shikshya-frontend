@@ -970,17 +970,17 @@
       }
 
       function renderProductGrid(products) {
-        if (!products.length) {
-          productsGrid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-box-open fa-3x"></i><h3>No bags found</h3></div>`;
-          return;
-        }
-        productsGrid.innerHTML = products
-          .map((p) => {
-            const img = p.imageUrl
-  ? `https://selfless-caring-production.up.railway.app${p.imageUrl}`
-  : "https://placehold.co/400x400?text=Shikshya+Bag";
-            return `
-        <div class="product-card" data-id="${p.id}">
+  if (!products.length) {
+    productsGrid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-box-open fa-3x"></i><h3>No bags found</h3></div>`;
+    return;
+  }
+  productsGrid.innerHTML = products
+    .map((p) => {
+      const img = p.imageUrl
+        ? `https://selfless-caring-production.up.railway.app${p.imageUrl}`
+        : "https://placehold.co/400x400?text=Shikshya+Bag";
+      return `
+         <div class="product-card" data-id="${p.id}">
           <img class="product-img" src="${img}" alt="${p.name}" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
           <div class="product-info">
             <div class="product-title">${escapeHtml(p.name)}</div>
@@ -990,8 +990,8 @@
             <button class="add-to-cart" data-id="${p.id}" data-name="${escapeHtml(p.name)}" data-price="${p.price}" data-img="${img}" data-stock="${p.stock}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
           </div>
         </div>`;
-          })
-          .join("");
+    })
+    .join("");
         document.querySelectorAll(".add-to-cart").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             e.stopPropagation();
@@ -1025,12 +1025,13 @@
         ) {
           return imagePath;
         }
-        // Local development fallback
-const API_BASE_URL = "https://selfless-caring-production.up.railway.app";
-        if (imagePath.startsWith("/uploads/")) {
-          return `${API_BASE_URL}${imagePath}`;
-        }
-        return `${API_BASE_URL}/${imagePath.replace(/^\//, "")}`;
+        // Use Railway backend
+  const API_BASE_URL = "https://selfless-caring-production.up.railway.app";
+  if (imagePath.startsWith("/uploads/")) {
+    return `${API_BASE_URL}${imagePath}`;
+  }
+  return `${API_BASE_URL}/${imagePath.replace(/^\//, "")}`;
+} `${API_BASE_URL}/${imagePath.replace(/^\//, "")}`;
       }
       // ========== EVENT LISTENERS ==========
       document
