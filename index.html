@@ -580,7 +580,7 @@
 
     <script>
       // ---------- CONFIG ----------
-      const API_BASE = "http://localhost:3000/api";
+     const API_BASE = "https://selfless-caring-production.up.railway.app/api";
       let allProducts = [];
       let categoriesSet = new Set();
       let activeCategory = "all";
@@ -977,8 +977,8 @@
         productsGrid.innerHTML = products
           .map((p) => {
             const img = p.imageUrl
-              ? `http://localhost:3000${p.imageUrl}`
-              : "https://placehold.co/400x400?text=Shikshya+Bag";
+  ? `https://selfless-caring-production.up.railway.app${p.imageUrl}`
+  : "https://placehold.co/400x400?text=Shikshya+Bag";
             return `
         <div class="product-card" data-id="${p.id}">
           <img class="product-img" src="${img}" alt="${p.name}" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
@@ -1026,7 +1026,7 @@
           return imagePath;
         }
         // Local development fallback
-        const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://selfless-caring-production.up.railway.app";
         if (imagePath.startsWith("/uploads/")) {
           return `${API_BASE_URL}${imagePath}`;
         }
