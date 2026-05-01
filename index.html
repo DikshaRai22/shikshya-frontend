@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Shikshya | Premium Nepali Bags – Handcrafted Heritage</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #fcf9f5;
+        color: #1e1b1b;
+        scroll-behavior: smooth;
+      }
+      :root {
+        --gold: #c9a84c;
+        --gold-dark: #b38f3a;
+        --navy: #1b2a4a;
+        --sand: #f4efe6;
+        --gray-light: #f9f7f4;
+        --shadow-sm:
+          0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.05);
+        --shadow-hover: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+      }
+      .top-bar {
+        background: white;
+        border-bottom: 1px solid #eee6dc;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(2px);
+        background: rgba(255, 255, 245, 0.96);
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+        flex-wrap: wrap;
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        background: linear-gradient(135deg, #1b2a4a 0%, #c9a84c 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .logo span {
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: #5a687c;
+        display: block;
+      }
+      .cart-icon {
+        position: relative;
+        cursor: pointer;
+        background: var(--sand);
+        padding: 10px 18px;
+        border-radius: 40px;
+        transition: 0.2s;
+        font-weight: 600;
+      }
+      .cart-icon i {
+        font-size: 1.3rem;
+        color: var(--navy);
+      }
+      .cart-count {
+        background: var(--gold);
+        color: #1b2a4a;
+        border-radius: 30px;
+        padding: 0px 8px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        position: absolute;
+        top: -6px;
+        right: -6px;
+      }
+      .hero {
+        background: linear-gradient(120deg, #f9f3e8 0%, #fff8f0 100%);
+        padding: 64px 0;
+        text-align: center;
+        border-radius: 0 0 32px 32px;
+      }
+      .hero h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #1b2a4a;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-top: 16px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #3e4a5e;
+      }
+      .filter-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin: 40px 0 32px;
+      }
+      .category-filter {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .filter-chip {
+        background: white;
+        border: 1px solid #e2dcd2;
+        padding: 8px 20px;
+        border-radius: 40px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .filter-chip.active,
+      .filter-chip:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: #1b2a4a;
+      }
+      .search-box {
+        display: flex;
+        align-items: center;
+        background: white;
+        border-radius: 48px;
+        padding: 6px 16px;
+        box-shadow: var(--shadow-sm);
+      }
+      .search-box input {
+        border: none;
+        padding: 10px 12px;
+        width: 220px;
+        font-size: 0.9rem;
+        background: transparent;
+        outline: none;
+      }
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 32px;
+        margin: 32px 0 60px;
+      }
+      .product-card {
+        background: white;
+        border-radius: 28px;
+        overflow: hidden;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s;
+        box-shadow: var(--shadow-sm);
+        cursor: pointer;
+      }
+      .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-hover);
+      }
+      .product-img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        background: #f3ede5;
+        transition: 0.3s;
+      }
+      .product-info {
+        padding: 20px;
+      }
+      .product-title {
+        font-weight: 700;
+        font-size: 1.25rem;
+      }
+      .product-category {
+        font-size: 0.75rem;
+        color: #c9a84c;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 6px 0;
+      }
+      .price-row {
+        display: flex;
+        gap: 12px;
+        align-items: baseline;
+        margin: 12px 0;
+      }
+      .current-price {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #1b2a4a;
+      }
+      .old-price {
+        text-decoration: line-through;
+        color: #a99f92;
+        font-size: 0.9rem;
+      }
+      .badge-stock {
+        display: inline-block;
+        background: #fef1e0;
+        padding: 4px 12px;
+        border-radius: 30px;
+        font-size: 0.7rem;
+        font-weight: 600;
+      }
+      .add-to-cart {
+        width: 100%;
+        background: #1b2a4a;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 40px;
+        font-weight: 600;
+        margin-top: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .add-to-cart:hover {
+        background: var(--gold);
+        color: #1b2a4a;
+      }
+      /* MOBILE BOTTOM BAR */
+      .mobile-cart-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #1b2a4a;
+        color: white;
+        padding: 14px 20px;
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 200;
+        font-weight: 600;
+        cursor: pointer;
+        border-top: 2px solid var(--gold);
+      }
+      /* TOAST CONTAINER */
+      #toast-container {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        z-index: 1200;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      /* CART DRAWER (ENHANCED) */
+      .cart-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        max-width: 480px;
+        height: 100vh;
+        background: white;
+        z-index: 1000;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        display: flex;
+        flex-direction: column;
+      }
+      .cart-drawer.open {
+        transform: translateX(0);
+      }
+      .cart-overlay-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+      }
+      .cart-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid #f0eae2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+      .cart-items-scroll {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+      }
+      .cart-item {
+        display: flex;
+        gap: 14px;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #f3ede5;
+      }
+      .cart-item-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+      .cart-item-details {
+        flex: 1;
+      }
+      .cart-item-title {
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .cart-item-price {
+        color: #c9a84c;
+        font-weight: 600;
+      }
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 10px;
+      }
+      .qty-btn {
+        background: #f3f0ea;
+        border: none;
+        width: 28px;
+        height: 28px;
+        border-radius: 30px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .remove-item {
+        background: none;
+        border: none;
+        color: #b91c1c;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      .cart-footer {
+        padding: 20px 24px;
+        border-top: 1px solid #f0eae2;
+        background: #fefbf7;
+      }
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+      .free-shipping-banner {
+        background: #f0fdf4;
+        color: #166534;
+        padding: 8px 12px;
+        border-radius: 40px;
+        font-size: 0.75rem;
+        text-align: center;
+        margin: 12px 0;
+      }
+      .checkout-form input,
+      .checkout-form textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #e2e2e2;
+        border-radius: 28px;
+        margin-top: 8px;
+        font-family: inherit;
+      }
+      .btn-checkout {
+        width: 100%;
+        background: #c9a84c;
+        border: none;
+        padding: 14px;
+        border-radius: 40px;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-top: 16px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .btn-checkout:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .close-drawer {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+      footer {
+        background: #1b2a4a;
+        color: #cdd9f4;
+        text-align: center;
+        padding: 32px;
+        margin-top: 48px;
+      }
+      @media (max-width: 760px) {
+        .hero h2 {
+          font-size: 2rem;
+        }
+        .products-grid {
+          gap: 20px;
+        }
+        .cart-drawer {
+          max-width: 100%;
+        }
+      }
+      .skeleton-img {
+        background: linear-gradient(
+          110deg,
+          #ececec 8%,
+          #f5f5f5 18%,
+          #ececec 33%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.2s linear infinite;
+        height: 280px;
+        border-radius: 24px;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <h1>शिक्षा <span style="color: #c9a84c">Shikshya</span></h1>
+            <span>Handcrafted Nepali Bags</span>
+          </div>
+          <div class="cart-icon" id="cartIconBtn">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count" id="cart-badge">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <h2>Carry Heritage,<br />Elevate Everyday</h2>
+        <p>
+          Authentic bags from the heart of Himalayas – sustainable, premium,
+          handcrafted.
+        </p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="filter-section">
+        <div class="category-filter" id="categoryFilterContainer">
+          <div class="filter-chip active" data-cat="all">All Bags</div>
+        </div>
+        <div class="search-box">
+          <i class="fas fa-search" style="color: #b9aa96"></i>
+          <input type="text" id="searchInput" placeholder="Search bags..." />
+        </div>
+      </div>
+      <div id="productsGrid" class="products-grid">...</div>
+    </div>
+
+    <footer>
+      <p>
+        © 2025 Shikshya – authentic Nepali craftsmanship | Sustainable & fair
+        trade
+      </p>
+    </footer>
+
+    <!-- MOBILE CART BAR -->
+    <div id="mobile-cart-bar" class="mobile-cart-bar">
+      <span id="mobile-cart-label">View Cart (0 items)</span>
+      <i class="fas fa-arrow-right"></i>
+    </div>
+
+    <!-- CART DRAWER + OVERLAY -->
+    <div id="cart-overlay" class="cart-overlay-bg"></div>
+    <div id="cart-drawer" class="cart-drawer">
+      <div class="cart-header">
+        <span
+          ><i class="fas fa-shopping-bag"></i> Your Cart
+          <span id="cart-item-count-label">0 items</span></span
+        >
+        <button class="close-drawer" id="closeCartBtn">&times;</button>
+      </div>
+
+      <div class="cart-items-scroll" id="cart-items-list">
+        <div id="cart-empty" style="text-align: center; padding: 40px">
+          <i class="fas fa-bag-shopping fa-3x" style="color: #ccc"></i>
+          <p>Your cart is empty</p>
+          <p style="font-size: 0.8rem">Add some bags to get started!</p>
+          <button
+            id="startShoppingBtn"
+            style="
+              margin-top: 16px;
+              background: #c9a84c;
+              border: none;
+              padding: 8px 24px;
+              border-radius: 40px;
+            "
+          >
+            Start Shopping
+          </button>
+        </div>
+        <div id="cart-items-dynamic"></div>
+      </div>
+
+      <div id="cart-footer" style="display: none">
+        <div id="shipping-notice" class="free-shipping-banner"></div>
+        <div class="info-row">
+          <span>Subtotal</span><span id="cart-subtotal">NPR 0</span>
+        </div>
+        <div class="info-row">
+          <span>Shipping</span><span id="cart-shipping">NPR 0</span>
+        </div>
+        <div class="info-row" style="font-weight: 800; font-size: 1.1rem">
+          <span>Total</span><span id="cart-total-display">NPR 0</span>
+        </div>
+
+        <div class="checkout-form">
+          <input
+            type="text"
+            id="customer-name"
+            placeholder="Full name *"
+            style="width: 100%; margin-bottom: 12px"
+          />
+          <input
+            type="tel"
+            id="customer-phone"
+            placeholder="Phone number * (10 digits)"
+            style="width: 100%; margin-bottom: 12px"
+          />
+          <textarea
+            id="customer-address"
+            placeholder="Delivery address *"
+            rows="2"
+            style="width: 100%; margin-bottom: 12px"
+          ></textarea>
+          <textarea
+            id="customer-note"
+            placeholder="Order notes (optional)"
+            rows="2"
+            style="width: 100%; margin-bottom: 8px"
+          ></textarea>
+          <button id="checkout-btn" class="btn-checkout">
+            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script>
+      // ---------- CONFIG ----------
+      const API_BASE = "http://localhost:3000/api";
+      let allProducts = [];
+      let categoriesSet = new Set();
+      let activeCategory = "all";
+      let searchTerm = "";
+
+      // ========== CART STATE (localStorage) ==========
+      let cart = JSON.parse(localStorage.getItem("shikshya_cart") || "[]");
+      let cartDrawerOpen = false;
+
+      // DOM references
+      const productsGrid = document.getElementById("productsGrid");
+      const categoryContainer = document.getElementById(
+        "categoryFilterContainer",
+      );
+      const searchInput = document.getElementById("searchInput");
+
+      // ========== CORE CART FUNCTIONS ==========
+      function saveCart() {
+        localStorage.setItem("shikshya_cart", JSON.stringify(cart));
+        updateCartUI();
+      }
+
+      function addToCart(product) {
+        if (product.stock === 0) {
+          showToast("This product is out of stock", "error");
+          return;
+        }
+        const existing = cart.find((i) => i.id === product.id);
+        if (existing) {
+          if (existing.quantity >= product.stock) {
+            showToast(`Only ${product.stock} available`, "warning");
+            return;
+          }
+          existing.quantity += 1;
+        } else {
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1,
+            stock: product.stock,
+          });
+        }
+        saveCart();
+        showToast(`${product.name} added to cart!`, "success");
+      }
+
+      function removeFromCart(productId) {
+        cart = cart.filter((i) => i.id !== productId);
+        saveCart();
+      }
+
+      function updateQuantity(productId, delta) {
+        const item = cart.find((i) => i.id === productId);
+        if (!item) return;
+        const newQty = item.quantity + delta;
+        if (newQty < 1) {
+          removeFromCart(productId);
+          return;
+        }
+        if (newQty > item.stock) {
+          showToast(`Only ${item.stock} available`, "warning");
+          return;
+        }
+        item.quantity = newQty;
+        saveCart();
+      }
+
+      function getCartCount() {
+        return cart.reduce((sum, i) => sum + i.quantity, 0);
+      }
+      function getSubtotal() {
+        return cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+      }
+      function getShipping(subtotal) {
+        return subtotal >= 2000 ? 0 : 120;
+      }
+
+      // ========== CART UI ==========
+      function openCart() {
+        document.getElementById("cart-drawer").style.transform =
+          "translateX(0)";
+        document.getElementById("cart-overlay").style.display = "block";
+        cartDrawerOpen = true;
+        renderCartDrawer();
+      }
+      function closeCart() {
+        document.getElementById("cart-drawer").style.transform =
+          "translateX(100%)";
+        document.getElementById("cart-overlay").style.display = "none";
+        cartDrawerOpen = false;
+      }
+
+      function updateCartUI() {
+        const count = getCartCount();
+        const badge = document.getElementById("cart-badge");
+        if (badge) {
+          badge.textContent = count;
+          badge.style.display = count > 0 ? "flex" : "none";
+        }
+
+        const mobileBar = document.getElementById("mobile-cart-bar");
+        const mobileLabel = document.getElementById("mobile-cart-label");
+        if (mobileBar && window.innerWidth < 768) {
+          if (count > 0) {
+            mobileBar.style.display = "flex";
+            mobileLabel.textContent = `View Cart (${count} items) — NPR ${getSubtotal().toLocaleString()}`;
+          } else {
+            mobileBar.style.display = "none";
+          }
+        }
+        if (cartDrawerOpen) renderCartDrawer();
+      }
+
+      function renderCartDrawer() {
+        const listContainer = document.getElementById("cart-items-dynamic");
+        const emptyDiv = document.getElementById("cart-empty");
+        const footerDiv = document.getElementById("cart-footer");
+        const countLabel = document.getElementById("cart-item-count-label");
+        const count = getCartCount();
+        if (countLabel)
+          countLabel.textContent = count + (count === 1 ? " item" : " items");
+
+        if (cart.length === 0) {
+          if (emptyDiv) emptyDiv.style.display = "block";
+          if (listContainer) listContainer.innerHTML = "";
+          if (footerDiv) footerDiv.style.display = "none";
+          return;
+        }
+        if (emptyDiv) emptyDiv.style.display = "none";
+        if (footerDiv) footerDiv.style.display = "block";
+
+        listContainer.innerHTML = cart
+          .map(
+            (item) => `
+      <div class="cart-item" data-id="${item.id}">
+        <img class="cart-item-img" src="${item.image || "https://placehold.co/80x80?text=Bag"}" onerror="this.src='https://placehold.co/80x80?text=Bag'">
+        <div class="cart-item-details">
+          <div class="cart-item-title">${escapeHtml(item.name)}</div>
+          <div class="cart-item-price">NPR ${item.price.toLocaleString()}</div>
+          <div class="quantity-control">
+            <button class="qty-btn decr-qty" data-id="${item.id}">−</button>
+            <span>${item.quantity}</span>
+            <button class="qty-btn incr-qty" data-id="${item.id}">+</button>
+            <button class="remove-item" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button>
+          </div>
+        </div>
+        <div style="font-weight:600;">NPR ${(item.price * item.quantity).toLocaleString()}</div>
+      </div>
+    `,
+          )
+          .join("");
+
+        const subtotal = getSubtotal();
+        const shipping = getShipping(subtotal);
+        const total = subtotal + shipping;
+        document.getElementById("cart-subtotal").textContent =
+          "NPR " + subtotal.toLocaleString();
+        document.getElementById("cart-total-display").textContent =
+          "NPR " + total.toLocaleString();
+        const shippingEl = document.getElementById("cart-shipping");
+        const noticeEl = document.getElementById("shipping-notice");
+        if (shipping === 0) {
+          shippingEl.textContent = "Free";
+          shippingEl.style.color = "#16A34A";
+          noticeEl.style.background = "#F0FDF4";
+          noticeEl.style.color = "#16A34A";
+          noticeEl.textContent = "✨ You qualify for free shipping!";
+        } else {
+          shippingEl.textContent = "NPR " + shipping;
+          shippingEl.style.color = "#6B7280";
+          const remaining = 2000 - subtotal;
+          noticeEl.style.background = "#FFF7ED";
+          noticeEl.style.color = "#C2410C";
+          noticeEl.textContent = `➕ Add NPR ${remaining.toLocaleString()} more for free shipping`;
+        }
+
+        // Attach events
+        document.querySelectorAll(".decr-qty").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            updateQuantity(parseInt(btn.dataset.id), -1);
+          }),
+        );
+        document.querySelectorAll(".incr-qty").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            updateQuantity(parseInt(btn.dataset.id), 1);
+          }),
+        );
+        document.querySelectorAll(".remove-item").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            removeFromCart(parseInt(btn.dataset.id));
+          }),
+        );
+      }
+
+      // ========== ORDER & WHATSAPP ==========
+      async function placeOrder() {
+        const name = document.getElementById("customer-name").value.trim();
+        const phone = document.getElementById("customer-phone").value.trim();
+        const address = document
+          .getElementById("customer-address")
+          .value.trim();
+        const note = document.getElementById("customer-note").value.trim();
+
+        if (!name) {
+          highlightField("customer-name", "Full name required");
+          return;
+        }
+        if (!phone || !/^\d{10}$/.test(phone)) {
+          highlightField("customer-phone", "10-digit phone number required");
+          return;
+        }
+        if (!address) {
+          highlightField("customer-address", "Delivery address required");
+          return;
+        }
+        if (cart.length === 0) {
+          showToast("Cart is empty", "error");
+          return;
+        }
+
+        const btn = document.getElementById("checkout-btn");
+        btn.disabled = true;
+        btn.innerHTML =
+          '<i class="fas fa-spinner fa-pulse"></i> Placing order...';
+
+        const subtotal = getSubtotal();
+        const shipping = getShipping(subtotal);
+        const payload = {
+          customerName: name,
+          phone,
+          address,
+          note,
+          paymentMethod: "COD",
+          items: cart.map((i) => ({
+            productId: i.id,
+            productName: i.name,
+            price: i.price,
+            quantity: i.quantity,
+            image: i.image,
+          })),
+        };
+        try {
+          const res = await fetch(`${API_BASE}/orders`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const data = await res.json();
+          if (!res.ok)
+            throw new Error(
+              data.error || data.details?.join(", ") || "Order failed",
+            );
+          const order = data.order;
+
+          const itemsText = cart
+            .map(
+              (i) =>
+                `• ${i.name} x${i.quantity} — NPR ${(i.price * i.quantity).toLocaleString()}`,
+            )
+            .join("\n");
+          const whatsappMsg = `Hello Shikshya! 🛍️\n\nI want to place an order:\n\n${itemsText}\n\nSubtotal: NPR ${subtotal.toLocaleString()}\nShipping: ${shipping === 0 ? "Free" : "NPR " + shipping}\n*Total: NPR ${(subtotal + shipping).toLocaleString()}*\n\nOrder No: ${order.orderNumber}\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\n${note ? `Note: ${note}\n` : ""}Payment: Cash on Delivery\n\nPlease confirm my order. Thank you!`;
+
+          cart = [];
+          saveCart();
+          closeCart();
+          showToast(
+            `Order ${order.orderNumber} placed! Opening WhatsApp...`,
+            "success",
+            4000,
+          );
+          setTimeout(() => {
+            window.open(
+              "https://wa.me/9779842587018?text=" +
+                encodeURIComponent(whatsappMsg),
+              "_blank",
+            );
+          }, 800);
+        } catch (err) {
+          showToast(err.message || "Order failed. Try again.", "error");
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fab fa-whatsapp"></i> Order via WhatsApp';
+        }
+      }
+
+      function highlightField(id, msg) {
+        const el = document.getElementById(id);
+        el.style.borderColor = "#EF4444";
+        el.focus();
+        showToast(msg, "error");
+        el.addEventListener(
+          "input",
+          () => {
+            el.style.borderColor = "#E5E7EB";
+          },
+          { once: true },
+        );
+      }
+
+      function showToast(message, type = "info", duration = 3000) {
+        const colors = {
+          success: {
+            bg: "#F0FDF4",
+            border: "#16A34A",
+            text: "#15803D",
+            icon: "✓",
+          },
+          error: {
+            bg: "#FEF2F2",
+            border: "#EF4444",
+            text: "#DC2626",
+            icon: "✕",
+          },
+          warning: {
+            bg: "#FFFBEB",
+            border: "#F59E0B",
+            text: "#D97706",
+            icon: "!",
+          },
+          info: {
+            bg: "#EFF6FF",
+            border: "#3B82F6",
+            text: "#2563EB",
+            icon: "ℹ",
+          },
+        };
+        const c = colors[type] || colors.info;
+        const toast = document.createElement("div");
+        toast.style.cssText = `background:${c.bg}; border-left:3px solid ${c.border}; color:${c.text}; padding:12px 16px; border-radius:8px; font-size:13px; display:flex; align-items:center; gap:10px; margin-bottom:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);`;
+        toast.innerHTML = `<strong>${c.icon}</strong> ${message}`;
+        document.getElementById("toast-container").appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = "0";
+          setTimeout(() => toast.remove(), 300);
+        }, duration);
+      }
+
+      // ========== PRODUCTS & RENDERING ==========
+      async function fetchProducts() {
+        try {
+          const res = await fetch(`${API_BASE}/products`);
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+          allProducts = data.products || [];
+          allProducts.forEach((p) => {
+            if (p.category) categoriesSet.add(p.category);
+          });
+          renderCategoryFilters();
+          applyFiltersAndRender();
+        } catch (err) {
+          productsGrid.innerHTML = `<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>Cannot connect to backend. Make sure server is running.</p></div>`;
+        }
+      }
+
+      function renderCategoryFilters() {
+        let html = `<div class="filter-chip active" data-cat="all">All Bags</div>`;
+        categoriesSet.forEach((cat) => {
+          html += `<div class="filter-chip" data-cat="${cat}">${cat}</div>`;
+        });
+        categoryContainer.innerHTML = html;
+        document.querySelectorAll(".filter-chip").forEach((chip) => {
+          chip.addEventListener("click", () => {
+            document
+              .querySelectorAll(".filter-chip")
+              .forEach((c) => c.classList.remove("active"));
+            chip.classList.add("active");
+            activeCategory = chip.dataset.cat;
+            applyFiltersAndRender();
+          });
+        });
+      }
+
+      function applyFiltersAndRender() {
+        let filtered = [...allProducts];
+        if (activeCategory !== "all")
+          filtered = filtered.filter((p) => p.category === activeCategory);
+        if (searchTerm.trim())
+          filtered = filtered.filter((p) =>
+            p.name.toLowerCase().includes(searchTerm.toLowerCase()),
+          );
+        renderProductGrid(filtered);
+      }
+
+      function renderProductGrid(products) {
+        if (!products.length) {
+          productsGrid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-box-open fa-3x"></i><h3>No bags found</h3></div>`;
+          return;
+        }
+        productsGrid.innerHTML = products
+          .map((p) => {
+            const img = p.imageUrl
+              ? `http://localhost:3000${p.imageUrl}`
+              : "https://placehold.co/400x400?text=Shikshya+Bag";
+            return `
+        <div class="product-card" data-id="${p.id}">
+          <img class="product-img" src="${img}" alt="${p.name}" onerror="this.src='https://placehold.co/400x400?text=No+Image'">
+          <div class="product-info">
+            <div class="product-title">${escapeHtml(p.name)}</div>
+            <div class="product-category">${p.category}</div>
+            <div class="price-row"><span class="current-price">रु ${p.price}</span>${p.originalPrice ? `<span class="old-price">रु ${p.originalPrice}</span>` : ""}</div>
+            ${p.stock < 5 ? `<span class="badge-stock"><i class="fas fa-hourglass-half"></i> Only ${p.stock} left</span>` : p.badge ? `<span class="badge-stock">🔥 ${p.badge}</span>` : ""}
+            <button class="add-to-cart" data-id="${p.id}" data-name="${escapeHtml(p.name)}" data-price="${p.price}" data-img="${img}" data-stock="${p.stock}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+          </div>
+        </div>`;
+          })
+          .join("");
+        document.querySelectorAll(".add-to-cart").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            addToCart({
+              id: parseInt(btn.dataset.id),
+              name: btn.dataset.name,
+              price: parseFloat(btn.dataset.price),
+              image: btn.dataset.img,
+              stock: parseInt(btn.dataset.stock),
+            });
+          });
+        });
+      }
+
+      function escapeHtml(str) {
+        if (!str) return "";
+        return str.replace(
+          /[&<>]/g,
+          (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[m],
+        );
+      }
+      // ========== IMAGE URL HELPER ==========
+      function getImageUrl(imagePath) {
+        if (!imagePath) {
+          return "https://placehold.co/400x400?text=No+Image&bg=f3f4f6";
+        }
+        // If it's a full URL (Cloudinary or external)
+        if (
+          imagePath.startsWith("http://") ||
+          imagePath.startsWith("https://")
+        ) {
+          return imagePath;
+        }
+        // Local development fallback
+        const API_BASE_URL = "http://localhost:3000";
+        if (imagePath.startsWith("/uploads/")) {
+          return `${API_BASE_URL}${imagePath}`;
+        }
+        return `${API_BASE_URL}/${imagePath.replace(/^\//, "")}`;
+      }
+      // ========== EVENT LISTENERS ==========
+      document
+        .getElementById("cartIconBtn")
+        .addEventListener("click", openCart);
+      document
+        .getElementById("closeCartBtn")
+        .addEventListener("click", closeCart);
+      document
+        .getElementById("overlay-close")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("cart-overlay")
+        .addEventListener("click", closeCart);
+      document
+        .getElementById("startShoppingBtn")
+        ?.addEventListener("click", closeCart);
+      document
+        .getElementById("mobile-cart-bar")
+        ?.addEventListener("click", openCart);
+      document
+        .getElementById("checkout-btn")
+        ?.addEventListener("click", placeOrder);
+      searchInput.addEventListener("input", (e) => {
+        searchTerm = e.target.value;
+        applyFiltersAndRender();
+      });
+
+      fetchProducts();
+      updateCartUI();
+      if (cart.length > 0) renderCartDrawer();
+    </script>
+  </body>
+</html>
